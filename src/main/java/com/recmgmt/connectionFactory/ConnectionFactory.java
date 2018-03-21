@@ -26,7 +26,7 @@ public class ConnectionFactory {
     	return connectionFactory;
     }
     // method to create MySQL connection
-    public static Connection getConnection() {
+    public Connection getConnection() {
     	return connect;
     }
 }

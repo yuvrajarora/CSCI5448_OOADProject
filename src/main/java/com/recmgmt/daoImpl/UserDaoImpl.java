@@ -12,9 +12,12 @@ public class UserDaoImpl implements IUserDao{
     private PreparedStatement preparedStatement = null;
     private ResultSet resultSet = null;
     private List<User> userList; 
+    ConnectionFactory dbConnection;
     
     public UserDaoImpl() {
     	userList = new ArrayList<User>();
+    	dbConnection = ConnectionFactory.getConnectionFactoryInstance();
+    	
     }
     
 	public void insertUser(User user) {
@@ -28,7 +31,7 @@ public class UserDaoImpl implements IUserDao{
 	    String trainerType = user.getTrainerSport();
 	    
 		try {
-			preparedStatement = ConnectionFactory.getConnection()
+			preparedStatement = dbConnection.getConnection()
 					.prepareStatement("insert into  Rec_Center_Mgmt_System.User values ( ?, ?, ?, ?, ?, ?, ?, ?)");
 			preparedStatement.setInt(1, userID);
 	        preparedStatement.setString(2, userName);
@@ -46,7 +49,7 @@ public class UserDaoImpl implements IUserDao{
 	
 	public void deleteUser(Integer userID) {
 		try {
-			preparedStatement = ConnectionFactory.getConnection()
+			preparedStatement = dbConnection.getConnection()
 					.prepareStatement("delete Rec_Center_Mgmt_System.User where userID = ( ?)");
 			preparedStatement.setInt(1, userID);
 	        preparedStatement.executeUpdate();
@@ -66,7 +69,7 @@ public class UserDaoImpl implements IUserDao{
 	    String trainerType  = user.getTrainerSport();
 	    
 		try {
-			preparedStatement = ConnectionFactory.getConnection()
+			preparedStatement = dbConnection.getConnection()
 					.prepareStatement("update Rec_Center_Mgmt_System.User set userID=?, userName=?, userPw=?, userType=?, address=?, phoneNum=?, email=?, trainerType=?");
 			preparedStatement.setInt(1, userID);
 	        preparedStatement.setString(2, userName);
@@ -97,7 +100,7 @@ public class UserDaoImpl implements IUserDao{
 	
 	public List<User> getUserDetails(Integer userID) {
 		try {
-			preparedStatement = ConnectionFactory.getConnection()
+			preparedStatement = dbConnection.getConnection()
 					.prepareStatement("select userName,userPw,userType,address,phoneNum,email,trainerType from Rec_Center_Mgmt_System.User where userID=?");
 			preparedStatement.setInt(1, userID);
 			resultSet = preparedStatement.executeQuery();
@@ -118,7 +121,7 @@ public class UserDaoImpl implements IUserDao{
 	
 	public List<User> getAllUsersOfType(String _usrType){
 		try {
-			preparedStatement = ConnectionFactory.getConnection()
+			preparedStatement = dbConnection.getConnection()
 					.prepareStatement("select userName,userPw,userType,address,phoneNum,email,trainerType from Rec_Center_Mgmt_System.User where userType=?");
 			preparedStatement.setString(1, _usrType);
 			resultSet = preparedStatement.executeQuery();
