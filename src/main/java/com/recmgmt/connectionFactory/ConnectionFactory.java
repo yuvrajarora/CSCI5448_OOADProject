@@ -3,18 +3,30 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionFactory {
+	private static ConnectionFactory connectionFactory = null;
 	public static final String DBURL= "jdbc:mysql://localhost/Rec_Center_Mgmt_System?";
 	public static final String USERNAME = "root";
     public static final String PASSWORD = "root";
     private static Connection connect = null;
 
+    private ConnectionFactory() {
+    	if (connect == null) {
+    		try {
+        		connect = DriverManager.getConnection(DBURL,USERNAME,PASSWORD);
+        	} catch (SQLException ex) {
+        		throw new RuntimeException("Error connecting to the database", ex);
+        	}
+    	}
+    }
+    
+    public static ConnectionFactory getConnectionFactoryInstance() {
+    	if(connectionFactory == null) {
+    		connectionFactory = new ConnectionFactory();
+    	}
+    	return connectionFactory;
+    }
     // method to create MySQL connection
     public static Connection getConnection() {
-    	try {
-    		connect = DriverManager.getConnection(DBURL,USERNAME,PASSWORD);
-    		return connect;
-    	} catch (SQLException ex) {
-    		throw new RuntimeException("Error connecting to the database", ex);
-    	}
+    	return connect;
     }
 }
