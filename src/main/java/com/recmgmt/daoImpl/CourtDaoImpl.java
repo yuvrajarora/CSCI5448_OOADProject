@@ -58,7 +58,7 @@ public class CourtDaoImpl implements ICourtDao {
 			courtList.clear();
 			while(resultSet.next()) {
 				Court crt = extractUserFromResultSet(resultSet);
-				//Adding User to List
+				//Adding Court to List
 				courtList.add(crt);
 			}
 			resultSet.close();
