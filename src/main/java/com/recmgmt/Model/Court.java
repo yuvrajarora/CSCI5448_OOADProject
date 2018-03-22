@@ -1,3 +1,6 @@
+package com.recmgmt.Model;
+
+import com.recmgmt.enums.CourtReservationType;
 
 public class Court {
 private int courtID;

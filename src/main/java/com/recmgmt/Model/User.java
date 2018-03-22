@@ -1,3 +1,7 @@
+package com.recmgmt.Model;
+
+import com.recmgmt.enums.TrainerSport;
+import com.recmgmt.enums.userType;
 
 public class User {
 

@@ -1,3 +1,9 @@
+package com.recmgmt.daoImpl;
+
+import com.recmgmt.Model.Court;
+import com.recmgmt.connectionFactory.ConnectionFactory;
+import com.recmgmt.dao.ICourtDao;
+
 import java.util.List;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,7 +14,7 @@ import java.util.ArrayList;
 public class CourtDaoImpl implements ICourtDao {
     private PreparedStatement preparedStatement = null;
     private ResultSet resultSet = null;
-    private List<Court> courtList; 
+    private List<Court> courtList;
     ConnectionFactory dbConnection;
     
     public CourtDaoImpl() {
@@ -64,7 +70,9 @@ public class CourtDaoImpl implements ICourtDao {
 			resultSet.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		return courtList;
 	}
-}
+		return courtList;
+
+	}
+
 }

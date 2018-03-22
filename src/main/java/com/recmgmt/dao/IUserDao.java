@@ -1,4 +1,6 @@
 package com.recmgmt.dao;
+import com.recmgmt.Model.User;
+
 import java.util.List;
 
 public interface IUserDao {

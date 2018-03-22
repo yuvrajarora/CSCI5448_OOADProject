@@ -1,3 +1,9 @@
+package com.recmgmt.daoImpl;
+
+import com.recmgmt.Model.User;
+import com.recmgmt.connectionFactory.ConnectionFactory;
+import com.recmgmt.dao.IUserDao;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -6,12 +12,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class UserDaoImpl implements IUserDao{
+public class UserDaoImpl implements IUserDao {
 	
     //private Statement statement = null;
     private PreparedStatement preparedStatement = null;
     private ResultSet resultSet = null;
-    private List<User> userList; 
+    private List<User> userList;
     ConnectionFactory dbConnection;
     
     public UserDaoImpl() {
