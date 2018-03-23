@@ -10,6 +10,8 @@ public class Event {
 	private Integer maxLimit;
 	private Duration duration;
 	
+	public Event() { }
+	
 	public Event(Integer _eventID, String _eventName, String _eventType, Integer _eventLimit, Duration _duration) {
 		this.eventID = _eventID;
 		this.eventName = _eventName;
