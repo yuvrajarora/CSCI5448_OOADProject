@@ -1,4 +1,4 @@
-package com.recmgmt.connectionFactory;
+package com.recmgmt.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

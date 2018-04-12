@@ -1,6 +1,6 @@
 package com.recmgmt.dao;
 
-import com.recmgmt.Model.Event;
+import com.recmgmt.model.Event;
 import com.recmgmt.util.Duration;
 
 import java.util.List;

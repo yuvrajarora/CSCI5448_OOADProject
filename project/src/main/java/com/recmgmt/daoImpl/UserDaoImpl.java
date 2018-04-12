@@ -1,7 +1,7 @@
 package com.recmgmt.daoImpl;
 
-import com.recmgmt.Model.User;
-import com.recmgmt.connectionFactory.ConnectionFactory;
+import com.recmgmt.model.User;
+import com.recmgmt.util.ConnectionFactory;
 import com.recmgmt.dao.IUserDao;
 
 import java.sql.PreparedStatement;

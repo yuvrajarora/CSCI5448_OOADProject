@@ -1,7 +1,7 @@
 package com.recmgmt.daoImpl;
 
-import com.recmgmt.Model.Event;
-import com.recmgmt.connectionFactory.ConnectionFactory;
+import com.recmgmt.model.Event;
+import com.recmgmt.util.ConnectionFactory;
 import com.recmgmt.dao.IEventDao;
 import com.recmgmt.util.Duration;
 

@@ -1,7 +1,7 @@
 package com.recmgmt.daoImpl;
 
-import com.recmgmt.Model.Court;
-import com.recmgmt.connectionFactory.ConnectionFactory;
+import com.recmgmt.model.Court;
+import com.recmgmt.util.ConnectionFactory;
 import com.recmgmt.dao.ICourtDao;
 
 import java.util.List;

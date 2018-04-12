@@ -1,6 +1,6 @@
 package com.recmgmt.dao;
 
-import com.recmgmt.Model.Court;
+import com.recmgmt.model.Court;
 
 import java.util.*;
 public interface ICourtDao {

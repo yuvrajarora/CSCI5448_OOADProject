@@ -1,5 +1,5 @@
 package com.recmgmt.dao;
-import com.recmgmt.Model.User;
+import com.recmgmt.model.User;
 
 import java.util.List;
 

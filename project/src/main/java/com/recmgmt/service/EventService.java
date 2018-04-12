@@ -1,9 +1,9 @@
 package com.recmgmt.service;
-import com.recmgmt.Model.Event;
+import com.recmgmt.model.Event;
 import com.recmgmt.util.*;
 import com.recmgmt.daoImpl.EventDaoImpl;
 import java.util.ArrayList;
-import com.recmgmt.Model.User;
+import com.recmgmt.model.User;
 
 public class EventService {
 	private EventDaoImpl eventDaoImpl;

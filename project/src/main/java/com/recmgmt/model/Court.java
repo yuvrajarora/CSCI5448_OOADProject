@@ -1,18 +1,19 @@
-package com.recmgmt.Model;
+package com.recmgmt.model;
 
-import com.recmgmt.enums.CourtReservationType;
+
+import com.recmgmt.util.CommonDataUtil;
 
 public class Court {
 private int courtID;
 private String name;
-private CourtReservationType resType;
+private CommonDataUtil.CourtReservationType resType;
 
 public Court(){}
 
 public Court(int _courtID, String _name, String resType1) {
 this.courtID = _courtID;
 this.name = _name;
-this.resType = CourtReservationType.valueOf(resType1);
+this.resType = CommonDataUtil.CourtReservationType.valueOf(resType1);
 }
 
 public int getCourtID() {
@@ -32,7 +33,7 @@ public String getResType() {
 	return type;
 }
 public void setResType(String _resType) {
-	this.resType = CourtReservationType.valueOf(_resType);
+	this.resType = CommonDataUtil.CourtReservationType.valueOf(_resType);
 }
 
 }

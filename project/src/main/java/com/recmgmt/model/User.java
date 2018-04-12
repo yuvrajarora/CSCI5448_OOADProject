@@ -1,30 +1,29 @@
-package com.recmgmt.Model;
+package com.recmgmt.model;
 
-import com.recmgmt.enums.TrainerSport;
-import com.recmgmt.enums.userType;
+import com.recmgmt.util.CommonDataUtil;
 
 public class User {
 
 	private Integer userID;
     private String userName;
     private String userPw;
-    private userType usrType;
+    private String userType;
     private String address;
     private String phoneNum;
     private String emailID;
-    private TrainerSport trainerSport;
+    private CommonDataUtil.TrainerSport trainerSport;
     
     public User() {
     }
-    public User(Integer _id, String _userName, String _userPw, String _usrType, String _addr, String _phoneNum, String _email, String _sport) {
-    	this.userID = _id;
-        this.userName = _userName;
-        this.userPw = _userPw;
-        this.usrType = userType.valueOf(_usrType);
-        this.address = _addr;
-        this.phoneNum = _phoneNum;
-        this.emailID = _email;
-        this.trainerSport = TrainerSport.valueOf(_sport);
+    public User(Integer id, String userName, String userPw, String userType, String addr, String phoneNum, String email, String sport) {
+    	this.userID = id;
+        this.userName = userName;
+        this.userPw = userPw;
+        this.userType = userType;
+        this.address = addr;
+        this.phoneNum = phoneNum;
+        this.emailID = email;
+        this.trainerSport = CommonDataUtil.TrainerSport.valueOf(sport);
         
     }
     
@@ -50,11 +49,10 @@ public class User {
     }
     
     public String getUserType() {
-    	String type = usrType.name();
-        return type;
+        return userType;
     }
-    public void setUserType(String _usrType) {
-        this.usrType = userType.valueOf(_usrType);
+    public void setUserType(String userType) {
+        this.userType = userType;
     }
     
     public String getUserAddress() {
@@ -83,6 +81,6 @@ public class User {
         return type;
     }
     public void setTrainerSport(String _sportType) {
-        this.trainerSport = TrainerSport.valueOf(_sportType);
+        this.trainerSport = CommonDataUtil.TrainerSport.valueOf(_sportType);
     }
 }

@@ -1,12 +1,12 @@
-package com.recmgmt.Model;
+package com.recmgmt.model;
 
-import com.recmgmt.enums.EventType;
+import com.recmgmt.util.CommonDataUtil;
 import com.recmgmt.util.Duration;
 
 public class Event {
 	private Integer eventID;
 	private String eventName;
-	private EventType eventType;
+	private CommonDataUtil.EventType eventType;
 	private Integer maxLimit;
 	private Duration duration;
 	
@@ -15,7 +15,7 @@ public class Event {
 	public Event(Integer _eventID, String _eventName, String _eventType, Integer _eventLimit, Duration _duration) {
 		this.eventID = _eventID;
 		this.eventName = _eventName;
-		this.eventType = EventType.valueOf(_eventType);
+		this.eventType = CommonDataUtil.EventType.valueOf(_eventType);
 		this.maxLimit = _eventLimit;
 		this.duration = _duration;
 	}
@@ -35,7 +35,7 @@ public class Event {
 		String type = eventType.name();
         return type;
 	}
-	public void setEventType(EventType eventType) {
+	public void setEventType(CommonDataUtil.EventType eventType) {
 		this.eventType = eventType;
 	}
 	public Integer getMaxLimit() {
