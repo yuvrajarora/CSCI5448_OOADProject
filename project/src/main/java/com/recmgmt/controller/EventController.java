@@ -2,6 +2,8 @@ package com.recmgmt.controller;
 import com.recmgmt.service.EventService;
 
 public class EventController {
+
+
 	private EventService eventService;
 	
 	public EventController() {

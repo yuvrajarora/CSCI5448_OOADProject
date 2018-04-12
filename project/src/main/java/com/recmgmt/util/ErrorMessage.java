@@ -2,6 +2,7 @@ package com.recmgmt.util;
 
 public class ErrorMessage {
 	private boolean success;
+	private String message;
 	
 	public ErrorMessage() {
 		this.success = true;
@@ -12,8 +13,7 @@ public class ErrorMessage {
 	public void setSuccess(boolean success) {
 		this.success = success;
 	}
-	public String getErrorMsg() {
-		String errMsg = "Dummy Error Msg";
-		return errMsg;
+	public String getMessage() {
+		return message;
 	}	
 }
