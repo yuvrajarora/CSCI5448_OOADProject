@@ -1,5 +1,7 @@
 package com.recmgmt.service;
 
+import com.recmgmt.util.Duration;
+
 import java.util.*;
 public class CourtReservationService {
 	
@@ -8,7 +10,7 @@ public class CourtReservationService {
 	public ArrayList<String> getCourtName() {
 		return courtTypes;
 	}
-	public String makeReservation(int userID, int courtID, ArrayList<Integer> duration) {
+	public String makeReservation(int userID, int courtID, Duration duration) {
 		//implement DB logic here
 		//else
 		String error = "Error Message";

@@ -17,10 +17,8 @@ public class EventService {
 	}
 
 	public Event getEventDetails(Integer eventID) { 
-		//Creating dummy Event
-		Event event = new Event();
-		event = null;
-		return event;
+		//Refactor Add error checking logic
+		return eventDaoImpl.getEventDetails(eventID);
 	}
 	
 	public ErrorMessage addEvent (Event event) { 
