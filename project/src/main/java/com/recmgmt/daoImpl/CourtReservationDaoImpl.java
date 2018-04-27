@@ -36,8 +36,8 @@ public class CourtReservationDaoImpl implements ICourtReservationDao {
                     .prepareStatement("insert into  recmgmt.reservation (court_id,user_id,start_time,end_time,start_date,end_date) values ( ?, ?, ?, ?, ?,?)");
             preparedStatement.setInt(1, reservation.getCourt_id());
             preparedStatement.setInt(2, reservation.getUser_id());
-            preparedStatement.setDate(3, reservation.getDuration().getStartTime());
-            preparedStatement.setDate(4, reservation.getDuration().getEndTime());
+            preparedStatement.setTime(3, reservation.getDuration().getStartTime());
+            preparedStatement.setTime(4, reservation.getDuration().getEndTime());
             preparedStatement.setDate(5, reservation.getDuration().getStartDate());
             preparedStatement.setDate(6, reservation.getDuration().getEndDate());
             preparedStatement.executeUpdate();

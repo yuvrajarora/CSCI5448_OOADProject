@@ -3,17 +3,18 @@ package com.recmgmt.util;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.sql.Date;
+import java.sql.Time;
 
 
 public class Duration {
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
 	private Date startDate;
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
 	private Date endDate;
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
-	private Date startTime;
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
-	private Date endTime;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "hh:mm:ss")
+	private Time startTime;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "hh:mm:ss")
+	private Time endTime;
 
 	public Date getStartDate() {
 		return startDate;
@@ -32,19 +33,19 @@ public class Duration {
 		this.endDate = endDate;
 	}
 
-	public Date getStartTime() {
+	public Time getStartTime() {
 		return startTime;
 	}
 
-	public void setStartTime(Date startTime) {
+	public void setStartTime(Time startTime) {
 		this.startTime = startTime;
 	}
 
-	public Date getEndTime() {
+	public Time getEndTime() {
 		return endTime;
 	}
 
-	public void setEndTime(Date endTime) {
+	public void setEndTime(Time endTime) {
 		this.endTime = endTime;
 	}
 }
