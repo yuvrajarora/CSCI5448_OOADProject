@@ -1,20 +1,25 @@
 package com.recmgmt.service;
 
-import com.recmgmt.util.Duration;
+import com.recmgmt.daoImpl.CourtReservationDaoImpl;
+import com.recmgmt.model.Reservation;
+import com.recmgmt.util.ApiResponse;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.*;
+
+@Service
 public class CourtReservationService {
-	
+	@Autowired
+	CourtReservationDaoImpl courtReservationDao;
+
 	ArrayList<String> courtTypes = new ArrayList<String>();
 
 	public ArrayList<String> getCourtName() {
 		return courtTypes;
 	}
-	public String makeReservation(int userID, int courtID, Duration duration) {
-		//implement DB logic here
-		//else
-		String error = "Error Message";
-		return error;
+	public ApiResponse makeReservation(Reservation reservation) {
+		return courtReservationDao.reserveCourt(reservation);
 	}
 	public String deleteReservation(int userID, int courtID) {
 		//implement DB logic here

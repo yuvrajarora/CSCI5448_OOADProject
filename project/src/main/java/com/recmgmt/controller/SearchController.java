@@ -4,7 +4,7 @@ import com.recmgmt.model.Event;
 import com.recmgmt.model.SearchConfig;
 import com.recmgmt.model.SearchResult;
 import com.recmgmt.service.CourtReservationService;
-import com.recmgmt.service.EventService;
+//import com.recmgmt.service.EventService;
 import com.recmgmt.util.CommonDataUtil;
 import com.sun.tools.javac.code.Attribute;
 import org.slf4j.Logger;
@@ -25,12 +25,12 @@ import java.util.Date;
 public class SearchController {
     private Logger logger= LoggerFactory.getLogger(SearchController.class);
 
-    EventService eventService;
+    //EventService eventService;
 
     @RequestMapping(path = "/search", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public SearchResult search(@RequestBody SearchConfig search) {
-        logger.info("Searching for events");
+      /*  logger.info("Searching for events");
         //TODO refactor to search multiple at once
         EventService es = new EventService();
         SearchResult rs = new SearchResult();
@@ -42,7 +42,8 @@ public class SearchController {
         }
 
         rs.setEvents(events);
-        return rs;
+        return rs;*/
+      return null;
     }
 
     //TODO Refactor searching filterss

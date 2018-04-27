@@ -1,3 +1,4 @@
+/*
 package com.recmgmt.daoImpl;
 
 import com.recmgmt.model.Event;
@@ -30,8 +31,8 @@ public class EventDaoImpl implements IEventDao {
 		String eventType = event.getEventType();
 		Integer eventLimit = event.getMaxLimit();
 		Duration duration = event.getDuration();
-		Date sDur = duration.getStartDuration();
-		Date eDur = duration.getEndDuration();
+		//Date sDur = duration.getStartDuration();
+		//Date eDur = duration.getEndDuration();
 		String startTime = duration.getStartTime(sDur);
 		String endTime = duration.getEndTime(eDur);
 		String startDate = duration.getStartDate(sDur);
@@ -102,3 +103,4 @@ public class EventDaoImpl implements IEventDao {
 	public Event getEventDetails(Integer eventID) {return null; }
 	public List<String> fetchRegisteredUser(Integer eventID) {return null; }
 }
+*/

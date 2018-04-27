@@ -1,6 +1,6 @@
 package com.recmgmt.service;
 
-import com.recmgmt.Model.Appointment;
+import com.recmgmt.model.Appointment;
 import com.recmgmt.daoImpl.AppointmentDaoImpl;
 import com.recmgmt.model.User;
 import com.recmgmt.util.Duration;

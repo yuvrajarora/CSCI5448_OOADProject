@@ -1,6 +1,6 @@
 package com.recmgmt.dao;
 
-import com.recmgmt.Model.Appointment;
+import com.recmgmt.model.Appointment;
 import com.recmgmt.util.Duration;
 
 public interface IAppointmentDao {

@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class ConnectionFactory {
 	private static ConnectionFactory connectionFactory = null;
-	public static final String DBURL= "jdbc:mysql://localhost/Rec_Center_Mgmt_System?";
+	public static final String DBURL= "jdbc:mysql://localhost/recmgmt?";
 	public static final String USERNAME = "root";
     public static final String PASSWORD = "root";
     private static Connection connect = null;

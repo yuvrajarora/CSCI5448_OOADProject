@@ -1,3 +1,4 @@
+/*
 package com.recmgmt.controller;
 import com.recmgmt.service.EventService;
 
@@ -23,3 +24,4 @@ public class EventController {
 	public void registerUser(Integer userID, Integer eventID) { }
 	public void fetchAvailability(Integer eventID) { }	
 }
+*/

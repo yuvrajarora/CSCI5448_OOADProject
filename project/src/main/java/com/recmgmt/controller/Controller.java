@@ -1,7 +1,7 @@
 package com.recmgmt.controller;
 
 import com.recmgmt.service.CourtReservationService;
-import com.recmgmt.service.EventService;
+//import com.recmgmt.service.EventService;
 
 /**
  * @author Dixit Patel
@@ -10,7 +10,7 @@ import com.recmgmt.service.EventService;
 public class Controller {
     //TODO Refactor some logic from other controllers
     private CourtReservationService courtReservationService;
-    private EventService eventService ;
+    //private EventService eventService ;
 
     public CourtReservationService getCourtReservationService() {
         return courtReservationService;
@@ -20,11 +20,11 @@ public class Controller {
         this.courtReservationService = courtReservationService;
     }
 
-    public EventService getEventService() {
+    /*//public EventService getEventService() {
         return eventService;
     }
 
     public void setEventService(EventService eventService) {
         this.eventService = eventService;
-    }
+    }*/
 }

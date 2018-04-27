@@ -1,3 +1,4 @@
+/*
 package com.recmgmt.service;
 import com.recmgmt.model.Event;
 import com.recmgmt.util.*;
@@ -71,3 +72,4 @@ public class EventService {
 		return ticket;
 	}
 }
+*/

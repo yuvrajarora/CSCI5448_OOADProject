@@ -1,60 +1,50 @@
 package com.recmgmt.util;
 
-import java.util.Date;
-import java.text.SimpleDateFormat;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.sql.Date;
+
 
 public class Duration {
-	private String startDate;
-	private String endDate;
-	private String startTime;
-	private String endTime;
-	private Date startDuration;
-	private Date endDuration;
-	
-	public Duration(Date _startDate, Date _endDate) {
-		this.startDuration = _startDate;
-		this.endDuration = _endDate;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
+	private Date startDate;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
+	private Date endDate;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
+	private Date startTime;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
+	private Date endTime;
+
+	public Date getStartDate() {
+		return startDate;
 	}
-	
-	public Date getStartDuration() {
-		return this.startDuration;
+
+	public void setStartDate(Date startDate) {
+
+		this.startDate = startDate;
 	}
-	
-	public Date getEndDuration() {
-		return this.endDuration;
+
+	public Date getEndDate() {
+		return endDate;
 	}
-	
-	public String getStartDate(Date startDuration) {
-		SimpleDateFormat sdf = new SimpleDateFormat("mm:dd:yy");
-		String sDate = sdf.format(startDuration);
-		return sDate;
+
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
 	}
-	public void setstartDuration(Date startDur) {
-		this.startDuration = startDur;
+
+	public Date getStartTime() {
+		return startTime;
 	}
-	
-	public String getEndDate(Date endDuration) {
-		SimpleDateFormat sdf = new SimpleDateFormat("mm:dd:yy");
-		String eDate = sdf.format(endDuration);
-		return eDate;
-	}
-	public void setEndDuration(Date endDur) {
-		this.endDuration = endDur;
-	}
-	public String getStartTime(Date startDuration) {
-		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-		String sTime = sdf.format(startDuration);
-		return sTime;
-	}
-	public void setStartTime(String startTime) {
+
+	public void setStartTime(Date startTime) {
 		this.startTime = startTime;
 	}
-	public String getEndTime(Date endDuration) {
-		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-		String eTime = sdf.format(endDuration);
-		return eTime;
+
+	public Date getEndTime() {
+		return endTime;
 	}
-	public void setEndTime(String endTime) {
+
+	public void setEndTime(Date endTime) {
 		this.endTime = endTime;
-	}   
+	}
 }

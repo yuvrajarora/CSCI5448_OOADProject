@@ -1,6 +1,6 @@
 package com.recmgmt.daoImpl;
 
-import com.recmgmt.Model.Appointment;
+import com.recmgmt.model.Appointment;
 import com.recmgmt.dao.IAppointmentDao;
 import com.recmgmt.util.ConnectionFactory;
 import com.recmgmt.util.Duration;
