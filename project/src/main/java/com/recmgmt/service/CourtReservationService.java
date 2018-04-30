@@ -6,6 +6,7 @@ import com.recmgmt.util.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLException;
 import java.util.*;
 
 @Service
@@ -21,25 +22,20 @@ public class CourtReservationService {
 	public ApiResponse makeReservation(Reservation reservation) {
 		return courtReservationDao.reserveCourt(reservation);
 	}
-	public String deleteReservation(int userID, int courtID) {
-		//implement DB logic here
-		//else
-		String error = "Error Message";
-		return error;
+	public ApiResponse deleteReservation(Reservation reservation) {
+		return courtReservationDao.deleteCourt(reservation);
 	}
-	public ArrayList<String> getUserReservationList(int userID){
-		//logic for Court class here
-		return courtTypes; //remove this
+	public String getUserReservationList(int userID){
+		return courtReservationDao.getUserReservationList(userID);
 	}
+
 	public ArrayList<String> findAvailableSlots(int courtID,ArrayList<Integer> duration){
 		//logic for Court class here
 		return courtTypes; //remove this
 	}
-	public ArrayList<String> getCourtTypes() {
-		return courtTypes;
+	public String fetchCourt() {
+		return courtReservationDao.fetchCourts();
 	}
 
-	
-	
 	
 }

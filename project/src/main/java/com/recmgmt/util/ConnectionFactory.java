@@ -8,7 +8,7 @@ public class ConnectionFactory {
 	private static ConnectionFactory connectionFactory = null;
 	public static final String DBURL= "jdbc:mysql://localhost/recmgmt?";
 	public static final String USERNAME = "root";
-    public static final String PASSWORD = "root";
+    public static final String PASSWORD = "macbook12";
     private static Connection connect = null;
 
     private ConnectionFactory() {
