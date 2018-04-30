@@ -3,7 +3,8 @@ package com.recmgmt.daoImpl;
 import com.recmgmt.dao.ICourtReservationDao;
 import com.recmgmt.model.Court;
 import com.recmgmt.model.Reservation;
-import com.recmgmt.util.ConnectionFactory;
+import com.recmgmt.util.CommonDataUtil;
+import com.recmgmt.util.DatabaseFactory;
 import com.recmgmt.util.ApiResponse;
 import org.springframework.stereotype.Repository;
 
@@ -22,15 +23,16 @@ public class CourtReservationDaoImpl implements ICourtReservationDao {
     private Connection connection;
     private List<Court> courtList;
     private ResultSet resultSet = null;
+    private CommonDataUtil.DatabaseType databaseType = CommonDataUtil.DatabaseType.MySQL;
 
     public CourtReservationDaoImpl() {
-        connection = ConnectionFactory.getConnectionFactoryInstance().getConnection();
+        connection = DatabaseFactory.getConnection(databaseType);
     }
 
     @Override
     public ApiResponse reserveCourt(Reservation reservation) {
 
-        PreparedStatement preparedStatement = null;
+        PreparedStatement preparedStatement=null;
         ApiResponse result = new ApiResponse();
         try {
             preparedStatement = connection
@@ -43,7 +45,7 @@ public class CourtReservationDaoImpl implements ICourtReservationDao {
             preparedStatement.setDate(6, reservation.getDuration().getEndDate());
             preparedStatement.executeUpdate();
             result.setSuccess(true);
-            result.setMessage("Reservation Successful");
+            result.setMessage("Reservation Successfull");
 
         } catch (SQLException e) {
             e.printStackTrace();

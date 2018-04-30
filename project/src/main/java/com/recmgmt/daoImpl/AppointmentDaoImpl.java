@@ -2,9 +2,11 @@ package com.recmgmt.daoImpl;
 
 import com.recmgmt.model.Appointment;
 import com.recmgmt.dao.IAppointmentDao;
-import com.recmgmt.util.ConnectionFactory;
+import com.recmgmt.util.CommonDataUtil;
+import com.recmgmt.util.DatabaseFactory;
 import com.recmgmt.util.Duration;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,11 +17,11 @@ public class AppointmentDaoImpl implements IAppointmentDao {
     private PreparedStatement preparedStatement = null;
     private ResultSet resultSet = null;
     private List<Appointment> appointmentList;
-    ConnectionFactory dbConnection;
+    Connection dbConnection;
 
     public AppointmentDaoImpl() {
         appointmentList = new ArrayList<Appointment>();
-        dbConnection = ConnectionFactory.getConnectionFactoryInstance();
+        dbConnection = DatabaseFactory.getConnection(CommonDataUtil.DatabaseType.MySQL);
     }
 
     private Appointment extractUserFromResultSet(ResultSet rs) throws SQLException {
@@ -34,7 +36,7 @@ public class AppointmentDaoImpl implements IAppointmentDao {
 
     public List<Appointment> getAppointmentList (Integer userId){
         try {
-            preparedStatement = dbConnection.getConnection()
+            preparedStatement = dbConnection
                     .prepareStatement("select appointmentID,trainerID,appointeeID, duration from Rec_Center_Mgmt_System.Court");
             resultSet = preparedStatement.executeQuery();
 
@@ -65,7 +67,7 @@ public class AppointmentDaoImpl implements IAppointmentDao {
 
     public String deleteAppointment (Integer appointmentID){
         try {
-            preparedStatement = dbConnection.getConnection()
+            preparedStatement = dbConnection
                     .prepareStatement("delete Rec_Center_Mgmt_System.User where appointmentID = ( ?)");
             preparedStatement.setInt(1, appointmentID);
             preparedStatement.executeUpdate();

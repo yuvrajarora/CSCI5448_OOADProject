@@ -1,9 +1,11 @@
 package com.recmgmt.daoImpl;
 
 import com.recmgmt.model.Court;
-import com.recmgmt.util.ConnectionFactory;
+import com.recmgmt.util.CommonDataUtil;
+import com.recmgmt.util.DatabaseFactory;
 import com.recmgmt.dao.ICourtDao;
 
+import java.sql.Connection;
 import java.util.List;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,11 +17,11 @@ public class CourtDaoImpl implements ICourtDao {
     private PreparedStatement preparedStatement = null;
     private ResultSet resultSet = null;
     private List<Court> courtList;
-    ConnectionFactory dbConnection;
+    Connection dbConnection;
     
     public CourtDaoImpl() {
     	courtList = new ArrayList<Court>();
-    	dbConnection = ConnectionFactory.getConnectionFactoryInstance();
+    	dbConnection = DatabaseFactory.getConnection(CommonDataUtil.DatabaseType.MySQL);
     	
     }
 	public void insertCourt(Court crt) {
@@ -27,7 +29,7 @@ public class CourtDaoImpl implements ICourtDao {
 		String name = crt.getName();
 		String resType = crt.getResType();
 		try {
-			preparedStatement = dbConnection.getConnection()
+			preparedStatement = dbConnection
 					.prepareStatement("insert into  Rec_Center_Mgmt_System.Court values ( ?, ?, ?)");
 			preparedStatement.setInt(1, courtID);
 	        preparedStatement.setString(2, name);
@@ -39,7 +41,7 @@ public class CourtDaoImpl implements ICourtDao {
 	}
 	public void deleteCourt(int courtID) {
 		try {
-			preparedStatement = dbConnection.getConnection()
+			preparedStatement = dbConnection
 					.prepareStatement("delete Rec_Center_Mgmt_System.Court where courtID = ( ?)");
 			preparedStatement.setInt(1, courtID);
 	        preparedStatement.executeUpdate();
@@ -56,7 +58,7 @@ public class CourtDaoImpl implements ICourtDao {
 	}
 	public List<Court> fetchCourts(){
 		try {
-			preparedStatement = dbConnection.getConnection()
+			preparedStatement = dbConnection
 					.prepareStatement("select courtID,name,resType from Rec_Center_Mgmt_System.Court");
 			resultSet = preparedStatement.executeQuery();
 			

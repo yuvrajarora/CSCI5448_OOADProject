@@ -1,9 +1,11 @@
 package com.recmgmt.daoImpl;
 
 import com.recmgmt.model.User;
-import com.recmgmt.util.ConnectionFactory;
+import com.recmgmt.util.CommonDataUtil;
+import com.recmgmt.util.DatabaseFactory;
 import com.recmgmt.dao.IUserDao;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,11 +20,11 @@ public class UserDaoImpl implements IUserDao {
     private PreparedStatement preparedStatement = null;
     private ResultSet resultSet = null;
     private List<User> userList;
-    ConnectionFactory dbConnection;
+    Connection dbConnection;
     
     public UserDaoImpl() {
     	userList = new ArrayList<User>();
-    	dbConnection = ConnectionFactory.getConnectionFactoryInstance();
+    	dbConnection = DatabaseFactory.getConnection(CommonDataUtil.DatabaseType.MySQL);
     	
     }
     
@@ -37,7 +39,7 @@ public class UserDaoImpl implements IUserDao {
 	    String trainerType = user.getTrainerSport();
 	    
 		try {
-			preparedStatement = dbConnection.getConnection()
+			preparedStatement = dbConnection
 					.prepareStatement("insert into  Rec_Center_Mgmt_System.User values ( ?, ?, ?, ?, ?, ?, ?, ?)");
 			preparedStatement.setInt(1, userID);
 	        preparedStatement.setString(2, userName);
@@ -55,7 +57,7 @@ public class UserDaoImpl implements IUserDao {
 	
 	public void deleteUser(Integer userID) {
 		try {
-			preparedStatement = dbConnection.getConnection()
+			preparedStatement = dbConnection
 					.prepareStatement("delete Rec_Center_Mgmt_System.User where userID = ( ?)");
 			preparedStatement.setInt(1, userID);
 	        preparedStatement.executeUpdate();
@@ -75,7 +77,7 @@ public class UserDaoImpl implements IUserDao {
 	    String trainerType  = user.getTrainerSport();
 	    
 		try {
-			preparedStatement = dbConnection.getConnection()
+			preparedStatement = dbConnection
 					.prepareStatement("update Rec_Center_Mgmt_System.User set userID=?, userName=?, userPw=?, userType=?, address=?, phoneNum=?, email=?, trainerType=?");
 			preparedStatement.setInt(1, userID);
 	        preparedStatement.setString(2, userName);
@@ -106,7 +108,7 @@ public class UserDaoImpl implements IUserDao {
 	
 	public List<User> getUserDetails(Integer userID) {
 		try {
-			preparedStatement = dbConnection.getConnection()
+			preparedStatement = dbConnection
 					.prepareStatement("select userName,userPw,userType,address,phoneNum,email,trainerType from Rec_Center_Mgmt_System.User where userID=?");
 			preparedStatement.setInt(1, userID);
 			resultSet = preparedStatement.executeQuery();
@@ -127,7 +129,7 @@ public class UserDaoImpl implements IUserDao {
 	
 	public List<User> getAllUsersOfType(String _usrType){
 		try {
-			preparedStatement = dbConnection.getConnection()
+			preparedStatement = dbConnection
 					.prepareStatement("select userName,userPw,userType,address,phoneNum,email,trainerType from Rec_Center_Mgmt_System.User where userType=?");
 			preparedStatement.setString(1, _usrType);
 			resultSet = preparedStatement.executeQuery();

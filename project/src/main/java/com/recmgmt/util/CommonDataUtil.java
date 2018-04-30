@@ -21,4 +21,8 @@ public class CommonDataUtil {
         Student, Trainer, Admin;
     }
 
+    public enum DatabaseType {
+        MySQL
+    }
+
 }
