@@ -7,18 +7,29 @@ public class Event {
 	private Integer eventID;
 	private String eventName;
 	private CommonDataUtil.EventType eventType;
-	private Integer maxLimit;
+
+	public Integer getEventLimit() {
+		return eventLimit;
+	}
+
+	public void setEventLimit(Integer eventLimit) {
+		this.eventLimit = eventLimit;
+	}
+
+	private Integer eventLimit;
+	private Integer currentSize;
 	private Duration duration;
-	
-	public Event() { }
-	
-	public Event(Integer _eventID, String _eventName, String _eventType, Integer _eventLimit, Duration _duration) {
+
+	/*public Event() { }
+
+	public Event(Integer _eventID, String _eventName, String _eventType, Integer _eventLimit, Duration _duration, Integer _currentSize) {
 		this.eventID = _eventID;
 		this.eventName = _eventName;
 		this.eventType = CommonDataUtil.EventType.valueOf(_eventType);
 		this.maxLimit = _eventLimit;
 		this.duration = _duration;
-	}
+		this.currentSize = _currentSize;
+	}*/
 	public Integer getEventID() {
 		return eventID;
 	}
@@ -33,21 +44,23 @@ public class Event {
 	}
 	public String getEventType() {
 		String type = eventType.name();
-        return type;
+		return type;
 	}
-	public void setEventType(CommonDataUtil.EventType eventType) {
-		this.eventType = eventType;
+	public void setEventType(String eventType) {
+		this.eventType = CommonDataUtil.EventType.valueOf(eventType);
 	}
-	public Integer getMaxLimit() {
-		return maxLimit;
-	}
-	public void setMaxLimit(Integer maxLimit) {
-		this.maxLimit = maxLimit;
-	}
+
 	public Duration getDuration() {
 		return duration;
 	}
 	public void setDuration(Duration duration) {
 		this.duration = duration;
+	}
+	public Integer getCurrentSize() {
+		return currentSize;
+	}
+
+	public void setCurrentSize(Integer currentSize) {
+		this.currentSize = currentSize;
 	}
 }
