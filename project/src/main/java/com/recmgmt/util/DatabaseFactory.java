@@ -20,7 +20,7 @@ public class DatabaseFactory {
     	}
     }
 
-    public static Connection getMySQLConnection() throws SQLException {
+    private static Connection getMySQLConnection() throws SQLException {
     	return MySQLConnection.getConnection();
 	}
     public static Connection getConnection(CommonDataUtil.DatabaseType type) {
@@ -28,8 +28,8 @@ public class DatabaseFactory {
     			databaseFactory = new DatabaseFactory(type);
     		}
 		return getConnection();
-
     }
+
     private static Connection getConnection() {
     	return connect;
     }
