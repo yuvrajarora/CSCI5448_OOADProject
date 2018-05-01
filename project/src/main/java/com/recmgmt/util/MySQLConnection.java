@@ -9,13 +9,13 @@ import java.sql.SQLException;
  */
 public class MySQLConnection {
 
-    public static final String DBURL= "jdbc:mysql://localhost/recmgmt?";
-    public static final String USERNAME = "root";
-    public static final String PASSWORD = "root";
-    private static Connection connect = null;
+    private static final String DBURL= "jdbc:mysql://localhost/recmgmt?";
+    private static final String USERNAME = "root";
+    private static final String PASSWORD = "root";
+    private static Connection mysqlConnection = null;
 
     public static Connection getConnection() throws SQLException {
-        connect = DriverManager.getConnection(DBURL,USERNAME,PASSWORD);
-        return connect;
+        mysqlConnection = DriverManager.getConnection(DBURL,USERNAME,PASSWORD);
+        return mysqlConnection;
     }
 }

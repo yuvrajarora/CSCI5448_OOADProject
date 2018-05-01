@@ -63,13 +63,9 @@ public class CourtReservationDaoImpl implements ICourtReservationDao {
         ApiResponse result = new ApiResponse();
         try {
             preparedStatement = connection
-                    .prepareStatement("delete from recmgmt.reservation where (court_id =? AND user_id=? AND start_time=? AND end_time=? AND start_date=? AND end_date=?)");
+                    .prepareStatement("delete from recmgmt.reservation where (court_id =? AND user_id=?)");
             preparedStatement.setInt(1, reservation.getCourt_id());
             preparedStatement.setInt(2, reservation.getUser_id());
-            preparedStatement.setTime(3, reservation.getDuration().getStartTime());
-            preparedStatement.setTime(4, reservation.getDuration().getEndTime());
-            preparedStatement.setDate(5, reservation.getDuration().getStartDate());
-            preparedStatement.setDate(6, reservation.getDuration().getEndDate());
             preparedStatement.executeUpdate();
             result.setSuccess(true);
             result.setMessage("Reservation deleted successfully");

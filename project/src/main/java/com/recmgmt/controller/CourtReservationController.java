@@ -34,7 +34,7 @@ public class CourtReservationController {
 		return courtReservationService.makeReservation(reservation);
 	}
 
-	@RequestMapping(path="/delete_court",method = RequestMethod.POST,headers="Content-Type=application/json")
+	@RequestMapping(path="/delete_reservation",method = RequestMethod.POST,headers="Content-Type=application/json")
 	@ResponseStatus(HttpStatus.CREATED)
 	public ApiResponse deleteReservation(@RequestBody Reservation reservation) throws ParseException {
 		return courtReservationService.deleteReservation(reservation);
