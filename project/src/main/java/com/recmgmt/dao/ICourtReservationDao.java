@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Dixit Patel
+ * @author Dixit Patel & Yuvraj Arora
  */
 public interface ICourtReservationDao {
     public ApiResponse reserveCourt(Reservation reservation);
